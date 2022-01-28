@@ -1,8 +1,11 @@
 .button{
-    height: 300px;
-    width: 300px;
+    height: 20%;
     font-size: 30px;
 }
 .footer{
+    border: solid;
+    background-color: black;
     text-align: center;
+    color:brown;
+    height: 200px;
 }
