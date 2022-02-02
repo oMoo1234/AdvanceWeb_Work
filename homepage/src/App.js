@@ -10,7 +10,6 @@ function App() {
         <p id="content1">Content</p>
         <p id="content2">Another things</p>
 
-
       </div>
       <div id="contact-box"> <p> contact </p>
       <button id="button">User 1</button>
