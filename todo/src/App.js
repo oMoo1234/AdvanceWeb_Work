@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-
+import './App.css'
 export class App extends Component {
 
   constructor(props){
@@ -39,21 +39,21 @@ deleteItem(id){
 }
   render() {
     return <div className="App">
-      <h1> ToDo List! </h1>
-      <div>
-        Add Item!
+      <h1> To Do List </h1>
+      <br></br>
+      <div className='addItem'>
+        Add Item here
         <br></br>
-        <input
+        <input className='input'
         type="text"
         placeholder='Type here'
         value={this.state.newItem}
         onChange={e=> this.updateInput("newItem", e.target.value)}
         >
-
         </input>
-        <button onClick={() => this.addItem() }> Add </button>
+        <button className='button' onClick={() => this.addItem() }> Add </button>
         <br/>
-        <ul>
+        <ol>
           {this.state.list.map(item => {
             return(
               <li key={item.id}>
@@ -64,7 +64,7 @@ deleteItem(id){
               </li>
             )
           })}
-        </ul>
+        </ol>
       </div>
     </div>;
   }
