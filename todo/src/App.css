@@ -19,3 +19,10 @@
   height:40px;
   font-size: 30px;
 }
+.deleteButton{
+  height: 40px;
+  font-size: 30px;
+  width: 40px;
+  background-color: red;
+
+}

@@ -58,8 +58,8 @@ deleteItem(id){
             return(
               <li key={item.id}>
                 {item.value}
-                <button onClick={() => this.deleteItem(item.id)}>
-
+                <button className='deleteButton' onClick={() => this.deleteItem(item.id)}>
+                 X
                 </button>
               </li>
             )
