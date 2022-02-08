@@ -1,23 +1,44 @@
-import logo from './logo.svg';
+import React,{useState} from 'react';
 import './App.css';
-
+import { v4 as uuidv4 } from 'uuid';
 function App() {
+
+  const initialList =[];
+  const [list, setList] = useState(initialList);
+  const [text, setName] = useState('');
+
+  function handleChange(event) {
+    setName(event.target.value);
+  }
+
+  function handleAdd() {
+    const newList = list.concat({ text, id: uuidv4() });
+    setList(newList);
+    setName('');
+  }
+
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+       <h1>hello</h1>
       </header>
+      <div className='body'>
+
+        <input type="text" className='input' value={text} placeholder='type here' onChange={handleChange} ></input>
+
+        <button type="button" className='button' onClick={handleAdd}>
+          Add
+        </button>
+
+
+      <ul>
+        {list.map((item) => (
+          <li key={item.id}>{item.text}</li>
+        ))}
+      </ul>
+
+
+      </div>
     </div>
   );
 }
