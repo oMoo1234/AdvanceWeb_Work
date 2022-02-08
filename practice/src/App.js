@@ -17,6 +17,13 @@ function App() {
     setName('');
     console.log(newList)
   }
+  function deleteItem(id) {
+    const newList = list.filter((item) => item.id !== id);
+
+    setList(newList);
+
+
+  }
 
   return (
     <div className="App">
@@ -25,7 +32,7 @@ function App() {
       </header>
       <div className='body'>
 
-        <input type="text" className='input' value={text} placeholder='type here' onChange={handleChange} ></input>
+        <input type="text" className='input' value={text} placeholder='Type here' onChange={handleChange} ></input>
 
         <button type="button" className='button' onClick={handleAdd}>
           Add
@@ -34,8 +41,13 @@ function App() {
 
       <ul>
         {list.map((item) => (
-          <li key={item.id}>{item.text}</li>
-        ))}
+          <li key={item.id}>{item.text}
+          <button className='button2' onClick={() => deleteItem(item.id)}>Done</button>
+          </li>
+        ))
+
+        }
+
       </ul>
 
 

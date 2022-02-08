@@ -1,74 +1,59 @@
-import React, { Component } from 'react';
-import './App.css'
-export class App extends Component {
+import React,{useState} from 'react';
+import './App.css';
+import { v4 as uuidv4 } from 'uuid';
+function App() {
 
-  constructor(props){
-    super(props);
-    this.state = {
-      newItem:"",
-      list:[]
+  const initialList =[];
+  const [list, setList] = useState(initialList);
+  const [text, setName] = useState('');
 
-    }
+  function handleChange(event) {
+    setName(event.target.value);
   }
 
-updateInput(key,value){
-  this.setState({
-    [key]: value
-  });
+  function handleAdd() {
+    const newList = list.concat({ text, id: uuidv4() });
+    setList(newList);
+    setName('');
+    console.log(newList)
+  }
+  function deleteItem(id) {
+    const newList = list.filter((item) => item.id !== id);
 
-}
+    setList(newList);
 
-addItem(){
-  const newItem={
-    id: 1+ Math.random(),
-    value: this.state.newItem.slice()
-  };
-  const list = [...this.state.list];
-  list.push(newItem);
-  this.setState({
-    list,
-    newItem:""
-  });
-}
 
-deleteItem(id){
-  const list = [...this.state.list];
-  const updatedList = list.filter(item => item.id !== id);
-  this.setState({list: updatedList});
+  }
 
-}
-  render() {
-    return <div className="App">
-      <h1> To Do List </h1>
-      <br></br>
-      <div className='addItem'>
-        Add Item here
-        <br></br>
-        <input className='input'
-        type="text"
-        placeholder='Type here'
-        value={this.state.newItem}
-        onChange={e=> this.updateInput("newItem", e.target.value)}
-        >
-        </input>
-        <button className='button' onClick={() => this.addItem() }> Add </button>
-        <br/>
-        <ol>
-          {this.state.list.map(item => {
-            return(
-              <li key={item.id}>
-                {item.value}
-                <button className='deleteButton' onClick={() => this.deleteItem(item.id)}>
-                 X
-                </button>
-              </li>
-            )
-          })}
-        </ol>
+  return (
+    <div className="App">
+      <header className="App-header">
+       <h1>Add Things To Do!</h1>
+      </header>
+      <div className='body'>
+
+        <input type="text" className='input' value={text} placeholder='Type here' onChange={handleChange} ></input>
+
+        <button type="button" className='button' onClick={handleAdd}>
+          Add
+        </button>
+
+
+      <ul>
+        {list.map((item) => (
+          <li key={item.id}>{item.text}
+          <button className='button2' onClick={() => deleteItem(item.id)}>Done</button>
+          </li>
+        ))
+
+        }
+
+      </ul>
+
+
       </div>
-    </div>;
-  }
+    </div>
+  );
 }
 
 export default App;
-

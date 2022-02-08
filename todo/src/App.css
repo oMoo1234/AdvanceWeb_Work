@@ -1,28 +1,43 @@
-.App{
+.App {
+  text-align: center;
+}
 
-  height: 400px;
-  background-color: aquamarine;
 
-  font-size: 30px;
+
+.App-header {
+  background-color: #282c34;
+  min-height: 30vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.body{
+  background-color: red;
+  min-height: 70vh;
+  flex-direction: column;
+  align-items: center;
+  /* justify-content: center; */
+  font-size: calc(10px + 2vmin);
+  display: flex;
+  color: white;
   overflow: auto;
 
 }
-.addItem{
-  font-size: 40px;
-
-}
 .input{
-  height: 40px;
-  font-size: 30px;
+height: 60px;
+font-size: 50px;
+overflow: auto;
 }
-.button{
-  height:40px;
-  font-size: 30px;
-}
-.deleteButton{
-  height: 40px;
-  font-size: 30px;
-  width: 40px;
-  background-color: red;
 
+.button{
+height: 60px;
+font-size: 50px;
 }
+.button2{
+  height: 50px;
+  font-size: 30px;
+  }
