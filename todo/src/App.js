@@ -12,17 +12,20 @@ function App() {
   }
 
   function handleAdd() {
+    if(text === ''){
+
+
+    }
+    else{
     const newList = list.concat({ text, id: uuidv4() });
     setList(newList);
     setName('');
     console.log(newList)
+    }
   }
   function deleteItem(id) {
     const newList = list.filter((item) => item.id !== id);
-
     setList(newList);
-
-
   }
 
   return (
@@ -38,7 +41,6 @@ function App() {
           Add
         </button>
 
-
       <ul>
         {list.map((item) => (
           <li key={item.id}>{item.text}
@@ -47,10 +49,7 @@ function App() {
         ))
 
         }
-
       </ul>
-
-
       </div>
     </div>
   );
