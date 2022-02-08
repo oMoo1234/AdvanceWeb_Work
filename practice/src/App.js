@@ -15,12 +15,13 @@ function App() {
     const newList = list.concat({ text, id: uuidv4() });
     setList(newList);
     setName('');
+    console.log(newList)
   }
 
   return (
     <div className="App">
       <header className="App-header">
-       <h1>hello</h1>
+       <h1>Add Things To Do!</h1>
       </header>
       <div className='body'>
 
