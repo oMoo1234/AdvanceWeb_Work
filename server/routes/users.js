@@ -1,14 +1,15 @@
 var express = require('express');
 var router = express.Router();
 
-var user = [
+const students = [
   {"id": 2,
   "name": "O Moo"
-}]
+}
+]
 
 /* GET users listing. */
 router.get('/', function(req, res, next) {
-  res.send('respond with a resource');
+  res.send(students);
 });
 
 module.exports = router;

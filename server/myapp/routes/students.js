@@ -1,21 +1,21 @@
 var express = require('express');
 var router = express.Router();
-var users = [{
+var students = [{
   "id": 1,
-  "name": "Jack"
+  "name": "Jackkkkk"
 },
 {
   "id": 2,
-  "Name": "Peter"
+  "Name": "Peterrrrr"
 },
 {
   "id": 3,
-  "name": "O Moo"
+  "name": "O Moooooo"
 }]
 
 /* GET users listing. */
 router.get('/', function(req, res, next) {
-  res.send(users);
+  res.send(students);
 });
 
 
