@@ -31,20 +31,25 @@ router.get('/:id', function(req, res, next) {
 
 });
 
-// function getStudent(req,res,next){
-//   let student
-//   try{
-//       student = students.find(req.params.id)
-//       if(s == null){
-//         return req.status(404).json({message: "cannot find student"})
-//       }
+// Put a single student by id
 
-//   }catch(err){
-//     return res.status(500).json({message: err.message})
-//   }
-//  res.student = student
-//  next()
+// Post a single student by id
+router.post('/', function(req, res, next) {
+  res.send("user created")
+});
 
-// }
+// delete a single student by id
+router.delete('/:id', function(req, res, next) {
+  const studentId = parseInt(req.params.id);
 
+   console.log("Delete item with id: ", studentId);
+
+   // filter list copy, by excluding item to delete
+   const filtered_list = students.filter(item => item.id !== studentId);
+
+   // replace old list with new one
+   students = filtered_list;
+
+   res.send(students);
+});
 module.exports = router;
