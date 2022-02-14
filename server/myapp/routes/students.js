@@ -17,6 +17,34 @@ var students = [{
 router.get('/', function(req, res, next) {
   res.send(students);
 });
+// GET student by id
+router.get('/:id', function(req, res, next) {
+  const studentId = parseInt(req.params.id);
+  const student = students.find(_student => _student.id === studentId);
 
+   if (student) {
+      res.send(student);
+   } else {
+      res.send({ message: `item ${studentId} doesn't exist`})
+   }
+
+
+});
+
+// function getStudent(req,res,next){
+//   let student
+//   try{
+//       student = students.find(req.params.id)
+//       if(s == null){
+//         return req.status(404).json({message: "cannot find student"})
+//       }
+
+//   }catch(err){
+//     return res.status(500).json({message: err.message})
+//   }
+//  res.student = student
+//  next()
+
+// }
 
 module.exports = router;

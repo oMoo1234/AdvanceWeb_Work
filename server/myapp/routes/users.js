@@ -13,10 +13,11 @@ var users = [{
   "name": "O Moo"
 }]
 
+
+
 /* GET users listing. */
 router.get('/', function(req, res, next) {
   res.send(users);
 });
-
 
 module.exports = router;
