@@ -1,5 +1,7 @@
 var express = require('express');
 var router = express.Router();
+router.use(express.urlencoded({ extended:false}));
+
 var students = [{
   "id": 1,
   "name": "Jackkkkk"
@@ -35,7 +37,10 @@ router.get('/:id', function(req, res, next) {
 
 // Post a single student by id
 router.post('/', function(req, res, next) {
-  res.send("user created")
+  const student = req.body;
+  students.push(student);
+  res.send(students);
+
 });
 
 // delete a single student by id
