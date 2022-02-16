@@ -21,8 +21,9 @@ router.get('/', function(req, res, next) {
 });
 // GET student by id
 router.get('/:id', function(req, res, next) {
+
   const studentId = req.params.id;
-  const student = students.find(_student => _student.id === studentId);
+  const student = students.filter(_student => _student.id === studentId);
    if (student) {
       res.send(student);
    } else {
@@ -54,9 +55,11 @@ router.put('/:id', function(req, res, next) {
 // Post a single student by id
 router.post('/', function(req, res, next) {
   const student = req.body;
-  // add new item to array
+
   students.push(student)
-  res.send(students);
+  res.send(students)
+
+
 });
 
 // delete a single student by id
